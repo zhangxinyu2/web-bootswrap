@@ -1,0 +1,30 @@
+
+  1、普遍 ：隐藏 拉 提交合并隐藏
+	
+	git stash
+	git pull
+	git stash pop
+
+  2、强制： 强制更新
+	git reset --hard
+	git pull
+
+  3、终极 ：1，2都解决不了，用3例子；
+
+	上次解决方案：
+	git fetch --all
+	git reset --hard origin
+
+	例子：
+	git fetch --all
+
+	显示：
+		Fetching origin
+		From github.com:iceskysl/www
+   		ad05fc..2009e  v3         -> origin/v3
+
+	实现:
+	 git reset --hard origin/v3
+
+
+	
