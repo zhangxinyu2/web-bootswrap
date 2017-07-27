@@ -1,0 +1,61 @@
+<script type="text/javascript">	
+		$('.dropdown-toggle').dropdown();
+		$(document).ready(function(){
+		    dropdownOpen();//调用
+		});
+		function dropdownOpen() {
+		    var $dropdownLi = $('li.dropdown');
+		    $dropdownLi.mouseover(function() {
+		        $(this).addClass('open');
+		    }).mouseout(function() {
+		        $(this).removeClass('open');
+		    });
+		}
+</script>
+<!--以下注解纯属个人学习，如有错误请见谅 by 张昕宇-->
+<!-- 创建导航栏(导航条) navbar 记住 navbar 不能单独使用 先给navbar个默认样式 navbar-default -->
+<div class="navbar navbar-default" role="navigation">
+    <!--来一个导航头 记住需要把响应式的logo放进去 并添加一个响应式按钮 当屏幕缩进时就可以出现logo按钮帮助等操作-->
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                    <p></p>
+                </div>
+                <!--这个是添加响应式按钮用的，目的为了当屏幕缩进后导航栏看不到了，或出现一个缩进按钮，进行导航的便捷-->
+                <!--toggle 缩进切换   data-toggle 字面意思数据切换 
+                	第一个是 data-toggle，用于告诉 JavaScript 需要对按钮做什么，
+                	第二个是 data-target，指示要切换到哪一个元素-->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-sjnav" aria-invalid="false">
+                    <!-- sr-only 提示缩进  而 icon-only 表示的按钮上一个横线 3个比较好看  也可以用星星的
+                    不过不太好看 glyphicon glyphicon-star-->
+                    <span class="sr-only">导航缩进</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div><!--导航栏 header toggle 切换-->
+            <!--设置屏幕缩进后的导航显示 需要设置导航样式-->
+            <div class="collapse navbar-collapse " id="navbar-sjnav">
+                <!--说明以下li属于导航条的数量，可以把列项的li 变成导航栏 nav横向数据-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../../home.html">首页</a></li>
+                    <li class="dropdown" data-no-turbolink="true">
+                        <a data-toggle="dropdown" class="dropdown-toggle" data-no-turbolink="true">产品与服务<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu">
+                            <!-- <li><a href="../product/huo1.html">星火一号</a></li>
+                            <li class="divider"></li> -->
+                            <li><a href="../product/huo2.html">星火二号</a></li>
+                            <li class="divider"></li>
+                            <li><a href="../product/huo3.html">星书基金</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../case/case.html">投资案例</a></li>
+                    <li><a href="../aboutUs/aboutUs.html">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div><!--全局布局-->

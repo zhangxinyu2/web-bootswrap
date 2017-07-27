@@ -1,0 +1,18 @@
+ <mirrors>
+	  <mirror>
+      <id>central</id>
+      <mirrorOf>*</mirrorOf>
+      <name>Central</name>
+      <url>http://localhost:8881/nexus/content/repositories/central/</url>
+	 </mirror>
+  </mirrors>
+  
+  ÐÞ¸Ä³É
+ </mirrors>
+	 <mirror>  
+	 <id>alimaven</id>  
+	 <mirrorOf>central</mirrorOf>  
+	 <name>aliyun maven</name>  
+	 <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>  
+	 </mirror>  
+ <mirrors>

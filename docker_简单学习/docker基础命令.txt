@@ -1,0 +1,51 @@
+docker是什么？
+一个可以轻松的为任何应用创建一个轻量级的、可移的容器。
+
+docker与虚拟机有什么区别
+虚拟机：整台机器包括硬件、自己的操作系统、预分配的资源将全部被占用等。
+Docker：共享宿主机硬件资源及操作系统，资源动态分配。
+
+
+一、安装docker
+Windows：
+    系统要求:Windows10x64位,支持Hyper-V,下载链接:https://download.docker.com/win/stable/InstallDocker.msi
+Linux：
+    yum install -y docker
+
+
+二、简单常用命令
+查看所有镜像：docker images
+查看所有容器(包括运行和停止的)：docker ps -a
+删除容器：docker rm 容器orID
+删除镜像：docker rmi 容器orID
+运行容器：docker run -it -d 容器orID
+保存镜像：docker save 容器orID > /home/name.tar
+加载镜像：docker load < /home/name.tar
+构建镜像：docker build -t="dicker.io/centos:v2" <镜像名> <Dockerfile路径>    默认标记为：latest
+拷贝文件：docker cp <镜像ID>:/home/name.tar
+构建镜像：docker commit <镜像ID> <新的镜像名>
+进入容器：docker exec -it <镜像ID> /bin/bash
+
+关于常用参数包括：
+
+-i：以“交互模式”运行容器
+-t：容器启动后会进入其命令行
+-d：让容器后台运行
+-v：表示需要将本地哪个目录挂载到容器中，格式：-v <宿主机目录>:<容器目录>
+-p：本地与容器端口绑定，-p <port>:<port>
+
+
+三、部署一个简单的web服务器
+部署nginx：
+    下载nginx镜像 docker pull docker.io/nginx
+    运行nginx容器 docker run -itd -p 80:80 docker.io/nginx
+    相对完整的命令 docker run --name vcspark-site -itd -p 80:80 -v `pwd`/logs:/var/log/nginx -v `pwd`/www/vcspark:/usr/share/nginx/html -v `pwd`/conf:/etc/nginx/sites-enabled  docker.io/nginx
+
+四、用Dockerfile创建镜像
+常用命令：
+    FROM：<基础镜像>  必须是首个命令
+    MAINTAINER：<创建者>
+    RUN：核心部分，容器操作命令
+    ENTRYPOINT：初始化时需要执行的命令，不可被重写覆盖
+    CMD ：镜像运行默认参数，可被重写覆盖
+    EXPOSE：指定端口，通过端口和外界交互

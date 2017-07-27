@@ -1,0 +1,18 @@
+#创建一个tomcat镜像
+#基于基础镜像
+FROM docker.io/centos
+#创建者信息
+MAINTAINER weihuawu <weihuawu1@vcspark.com>
+
+#将本地包复制到容器
+ADD jdk-8u91-linux-x64.rpm /usr/local/src
+ADD apache-tomcat-8.0.41.tar.gz /usr/local
+#安装的软件
+RUN yum install -y wget net-tools
+RUN rpm -ivh /usr/local/src/jdk-8u91-linux-x64.rpm
+#设置环境变量
+ENV CATALINA_HOME=/usr/local/apache-tomcat-8.0.41
+#暴露端口
+EXPOSE 8080
+#容器启动时的命令
+ENTRYPOINT ["/usr/local/apache-tomcat-8.0.41/bin/catalina.sh","run"]

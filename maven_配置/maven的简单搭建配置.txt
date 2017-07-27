@@ -1,0 +1,35 @@
+ 找到maven的安装目录 进行config的配置
+
+ 本地jar 配好
+
+ 镜像以前路径：
+    http://10.155.130.38:8081/nexus/content/groups/public
+
+ 2016_12_02后修改成:
+    http://dev.hcspark.com:8082/nexus/content/groups/public 
+
+
+ 步骤：
+     先找地方存好maven的jar
+     之后把安装好的maven也找到，开始配变量：
+     打开安装好的maven的config的settings  配置local的jar
+     和需要打开的镜像 mirror url
+     之后打开eclipse进行maven的配置 先把install配置好找到自己的maven安装
+     之后修改user settings 项 进行修改settings配置
+
+
+  maven 的好处：依赖管理、方便打包、部署运行等
+
+    <build>  
+      <plugins>  
+        <plugin>  
+            <groupId>org.apache.maven.plugins</groupId>  
+            <artifactId>maven-compiler-plugin</artifactId>  
+            <version>2.3.2</version>  
+            <configuration>  
+                <source>1.6</source>  
+                <target>1.6</target>  
+            </configuration>  
+        </plugin>  
+      </plugins>  
+    </build>  

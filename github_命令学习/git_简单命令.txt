@@ -1,0 +1,41 @@
+git冲突解决    -----------------------------强制更新冲突   git reset --hard
+
+git add .   到文件单个提交：git add file.java file2.java
+git commit -m "注释"
+git push origin master
+
+git status
+
+git push之后开始冲突了执行一下操作：
+
+git pull origin 
+
+合并冲突后在执行：
+
+git add .   到文件单个提交：git add file.java file2.java
+git commit -m "注释"
+git push origin master
+
+
+远程仓库 gituser@60.205.179.245:/opt/xhlt.git
+
+仓库数据转空格：
+find . -name *.java -exec sed -i 's/$\r\n/\n/g' {} \; 
+
+
+强制更新远程代码 git reset --hard origin/
+
+
+
+
+
+$ git clone gituser@60.205.179.245:/opt/xhlt.git
+
+
+
+
+
+
+
+
+
